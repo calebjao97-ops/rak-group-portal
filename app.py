@@ -36,6 +36,7 @@ h1, h2, h3 {
 
 # HERO SECTION
 st.title("RAK Group")
+st.image("cover.jpg")
 st.subheader("Empowering Progress and Innovation")
 
 st.markdown("""
