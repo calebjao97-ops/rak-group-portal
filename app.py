@@ -1,56 +1,106 @@
 import streamlit as st
 
-# 1. INITIALIZE (This prevents the NameError)
+# 1. INITIALIZE & PREVENT ERRORS
 st.set_page_config(page_title="RAK Group of Companies", page_icon="🏢", layout="wide")
 
-# 2. SIDEBAR SELECTION (Defining 'page' here)
-st.sidebar.title("RAK GROUP")
-page = st.sidebar.radio("Executive Menu", [
-    "Corporate Overview", 
-    "MC Petrofuel Global", 
-    "Zionlife Real Estate", 
-    "Industrial Procurement",
-    "PhilHealth YAKAP",
-    "Logistics & Trading"
-])
-
-# 3. CSS STYLING
+# 2. CUSTOM CSS (Backgrounds & Luxury Styling)
 st.markdown("""
     <style>
-    .main-header { font-size: 3rem; font-weight: 800; color: #1B263B; text-align: center; }
-    .sub-header { font-size: 1.2rem; color: #C5A059; text-align: center; letter-spacing: 2px; }
-    .glass-box { background: white; padding: 30px; border-radius: 15px; border: 1px solid #e0e0e0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    /* Full Page Background Gradient */
+    .stApp {
+        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    }
+
+    /* Professional Sidebar Background */
+    [data-testid="stSidebar"] {
+        background-color: #1B263B !important;
+    }
+    [data-testid="stSidebar"] * {
+        color: white !important;
+    }
+
+    /* Hero Section with Background Image */
+    .hero-section {
+        background-image: linear-gradient(rgba(27, 38, 59, 0.8), rgba(27, 38, 59, 0.8)), 
+                          url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070');
+        background-size: cover;
+        background-position: center;
+        padding: 100px 20px;
+        text-align: center;
+        border-radius: 20px;
+        color: white;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    /* Glassmorphism Card for Description */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        margin: -60px 40px 40px 40px; /* Pulls it up into the Hero image */
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Animated Metrics */
+    div[data-testid="stMetricValue"] {
+        color: #C5A059 !important; /* Gold Numbers */
+        font-weight: 800;
+    }
     </style>
     """, unsafe_allow_html=True)
 
+# 3. SIDEBAR NAVIGATION
+st.sidebar.markdown("<h2 style='text-align: center;'>RAK GROUP</h2>", unsafe_allow_html=True)
+st.sidebar.markdown("<p style='text-align: center; font-size: 0.8rem; letter-spacing: 2px;'>REAL QUALITY MATTERS</p>", unsafe_allow_html=True)
+st.sidebar.markdown("---")
+page = st.sidebar.radio("Go to:", [
+    "Corporate Home", 
+    "MC Petrofuel Global", 
+    "Zionlife Real Estate", 
+    "Industrial Procurement",
+    "Logistics & Trading"
+])
+
 # 4. PAGE LOGIC
-if page == "Corporate Overview":
-    st.markdown('<p class="main-header">RAK Group of Companies</p>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">REAL QUALITY MATTERS</p>', unsafe_allow_html=True)
-    
+if page == "Corporate Home":
+    # HERO SECTION
     st.markdown("""
-        <div class="glass-box">
-            <h3>Executive Summary</h3>
-            <p>RAK Group is a diversified conglomerate specializing in high-volume energy logistics, 
-            industrial procurement, and luxury real estate. We bridge global supply chains with 
-            local market excellence.</p>
+        <div class="hero-section">
+            <h1 style="font-size: 4rem; margin-bottom: 0;">RAK GROUP</h1>
+            <p style="font-size: 1.5rem; letter-spacing: 5px; color: #C5A059;">OFFICIAL PORTAL</p>
         </div>
     """, unsafe_allow_html=True)
 
-    # Trust Metrics
+    # DESCRIPTION BOX (Pushed up into Hero)
+    st.markdown("""
+        <div class="glass-card">
+            <h2 style="color: #1B263B; margin-top: 0;">Executive Summary</h2>
+            <p style="font-size: 1.2rem; color: #4A5568; line-height: 1.8;">
+                RAK Group of Companies is a diversified industrial conglomerate based in the Philippines. 
+                We specialize in <b>High-Volume Energy Logistics</b>, <b>Commodity Procurement</b>, 
+                and <b>Luxury Real Estate</b>. By bridging global supply chains with localized growth, 
+                we manage multi-billion peso contracts with institutional precision and unyielding quality.
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+
+    # TRUST METRICS
+    st.markdown("<br>", unsafe_allow_html=True)
     m1, m2, m3 = st.columns(3)
-    m1.metric("Fuel Capacity", "1M Liters/Mo")
-    m2.metric("Steel Volume", "11,000 MT")
-    m3.metric("Project Value", "₱1.0B+")
+    m1.metric("Fuel Facilitation", "1M Liters/Mo", "Verified")
+    m2.metric("Industrial Steel", "11,000 MT", "Active")
+    m3.metric("Project Value", "₱1.0B+", "Institutional")
 
 elif page == "MC Petrofuel Global":
     st.title("⛽ MC Petrofuel Global")
-    st.image("https://images.unsplash.com/photo-1518640165980-d3e0e2ba6c1e?q=80&w=1600")
-    st.write("Specializing in maritime fuel logistics and energy trading.")
+    st.image("https://images.unsplash.com/photo-1518640165980-d3e0e2ba6c1e?q=80&w=1600", caption="Maritime Logistics")
+    st.write("Professional facilitation for large-scale energy trading and diesel supply.")
 
-elif page == "Zionlife Real Estate":
-    st.title("🏠 Zionlife Real Estate")
-    st.image("https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=1600")
-    st.write("Luxury property investment and Airbnb management strategies.")
-
-# (Add other elif blocks as needed)
+# FOOTER
+st.markdown("---")
+st.caption("© 2026 RAK Group of Companies | Makati City, Philippines")
