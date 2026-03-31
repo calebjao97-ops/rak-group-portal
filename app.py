@@ -1,106 +1,175 @@
 import streamlit as st
 
-# 1. INITIALIZE & PREVENT ERRORS
-st.set_page_config(page_title="RAK Group of Companies", page_icon="🏢", layout="wide")
+# PAGE CONFIG
+st.set_page_config(
+    page_title="RAK Group",
+    layout="wide",
+    page_icon="🌐"
+)
 
-# 2. CUSTOM CSS (Backgrounds & Luxury Styling)
+# CUSTOM CSS (Professional Corporate Style)
 st.markdown("""
-    <style>
-    /* Full Page Background Gradient */
-    .stApp {
-        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-    }
+<style>
+body {
+    background-color: #0f172a;
+    color: white;
+}
+h1, h2, h3 {
+    color: #38bdf8;
+}
+.section {
+    padding: 40px 0;
+}
+.card {
+    background-color: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.highlight {
+    color: #22c55e;
+    font-weight: bold;
+}
+</style>
+""", unsafe_allow_html=True)
 
-    /* Professional Sidebar Background */
-    [data-testid="stSidebar"] {
-        background-color: #1B263B !important;
-    }
-    [data-testid="stSidebar"] * {
-        color: white !important;
-    }
+# HERO SECTION
+st.title("RAK Group")
+st.subheader("Empowering Progress and Innovation")
 
-    /* Hero Section with Background Image */
-    .hero-section {
-        background-image: linear-gradient(rgba(27, 38, 59, 0.8), rgba(27, 38, 59, 0.8)), 
-                          url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070');
-        background-size: cover;
-        background-position: center;
-        padding: 100px 20px;
-        text-align: center;
-        border-radius: 20px;
-        color: white;
-        margin-bottom: 40px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
+st.markdown("""
+A diversified conglomerate driving **sustainable development, innovation, and operational excellence** across critical industries in the Philippines and ASEAN.
 
-    /* Glassmorphism Card for Description */
-    .glass-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 40px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
-        margin: -60px 40px 40px 40px; /* Pulls it up into the Hero image */
-        position: relative;
-        z-index: 10;
-    }
+""")
 
-    /* Animated Metrics */
-    div[data-testid="stMetricValue"] {
-        color: #C5A059 !important; /* Gold Numbers */
-        font-weight: 800;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+st.divider()
 
-# 3. SIDEBAR NAVIGATION
-st.sidebar.markdown("<h2 style='text-align: center;'>RAK GROUP</h2>", unsafe_allow_html=True)
-st.sidebar.markdown("<p style='text-align: center; font-size: 0.8rem; letter-spacing: 2px;'>REAL QUALITY MATTERS</p>", unsafe_allow_html=True)
-st.sidebar.markdown("---")
-page = st.sidebar.radio("Go to:", [
-    "Corporate Home", 
-    "MC Petrofuel Global", 
-    "Zionlife Real Estate", 
-    "Industrial Procurement",
-    "Logistics & Trading"
-])
+# ABOUT SECTION
+st.header("About Us")
 
-# 4. PAGE LOGIC
-if page == "Corporate Home":
-    # HERO SECTION
-    st.markdown("""
-        <div class="hero-section">
-            <h1 style="font-size: 4rem; margin-bottom: 0;">RAK GROUP</h1>
-            <p style="font-size: 1.5rem; letter-spacing: 5px; color: #C5A059;">OFFICIAL PORTAL</p>
-        </div>
-    """, unsafe_allow_html=True)
+st.markdown("""
+RAK Group is a **multi-sector holding company** focused on building an integrated ecosystem that enhances quality of life.
 
-    # DESCRIPTION BOX (Pushed up into Hero)
-    st.markdown("""
-        <div class="glass-card">
-            <h2 style="color: #1B263B; margin-top: 0;">Executive Summary</h2>
-            <p style="font-size: 1.2rem; color: #4A5568; line-height: 1.8;">
-                RAK Group of Companies is a diversified industrial conglomerate based in the Philippines. 
-                We specialize in <b>High-Volume Energy Logistics</b>, <b>Commodity Procurement</b>, 
-                and <b>Luxury Real Estate</b>. By bridging global supply chains with localized growth, 
-                we manage multi-billion peso contracts with institutional precision and unyielding quality.
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
+### Core Strengths:
+- Financial Strength & Stability  
+- Corporate Governance & Transparency  
+- Technology-Driven Operations (ERP, CRM, IoT)  
+- Sustainability through *Green RAK Initiative*  
+""")
 
-    # TRUST METRICS
-    st.markdown("<br>", unsafe_allow_html=True)
-    m1, m2, m3 = st.columns(3)
-    m1.metric("Fuel Facilitation", "1M Liters/Mo", "Verified")
-    m2.metric("Industrial Steel", "11,000 MT", "Active")
-    m3.metric("Project Value", "₱1.0B+", "Institutional")
+# OPERATIONS SECTION
+st.divider()
+st.header("Our Business Units")
 
-elif page == "MC Petrofuel Global":
-    st.title("⛽ MC Petrofuel Global")
-    st.image("https://images.unsplash.com/photo-1518640165980-d3e0e2ba6c1e?q=80&w=1600", caption="Maritime Logistics")
-    st.write("Professional facilitation for large-scale energy trading and diesel supply.")
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader("Infrastructure")
+    st.write("EMET Port Builders Inc.")
+    st.write("• Ports, bridges, pipelines, and construction")
+    st.write("• Industrial and maritime infrastructure")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader("Waste Management")
+    st.write("RAK Waste Management Services Inc.")
+    st.write("• Recycling & landfill diversion")
+    st.write("• DENR-compliant sustainable solutions")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader("Healthcare")
+    st.write("RAK Health Solutions Inc.")
+    st.write("• Medical distribution & clinics")
+    st.write("• Pharmacy and telemedicine services")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader("Logistics")
+    st.write("RAK Value Distribution Network Inc.")
+    st.write("• Nationwide supply chain & last-mile delivery")
+    st.write("• Route optimization & real-time tracking")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader("Trading")
+    st.write("RAK Gen Merch Trading Inc.")
+    st.write("Zion Enterprises Inc.")
+    st.write("• Import/export, wholesale & retail")
+    st.write("• Consignment-based distribution model")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# STRATEGY SECTION
+st.divider()
+st.header("Strategic Vision")
+
+st.markdown("""
+### 2027–2030 Growth Strategy
+- ASEAN Expansion  
+- Renewable Energy & Water Treatment  
+- Digital B2B Platforms  
+- Strategic Mergers & Acquisitions  
+
+### Key Focus:
+- <span class="highlight">Sustainability</span>  
+- <span class="highlight">Digital Transformation</span>  
+- <span class="highlight">Operational Synergy</span>  
+""", unsafe_allow_html=True)
+
+# TECHNOLOGY SECTION
+st.divider()
+st.header("Technology & Innovation")
+
+st.markdown("""
+We leverage advanced technologies to ensure operational excellence:
+
+- ERP Systems for integrated operations  
+- CRM for client management  
+- IoT for real-time monitoring  
+- Cloud-based financial systems  
+- Cybersecurity and data protection  
+""")
+
+# SUSTAINABILITY SECTION
+st.divider()
+st.header("Sustainability: Green RAK")
+
+st.markdown("""
+Our sustainability framework focuses on:
+
+- Carbon footprint reduction  
+- Renewable energy adoption  
+- Circular economy practices  
+- Water conservation  
+- ISO-aligned environmental compliance  
+""")
+
+# MARKET POSITION
+st.divider()
+st.header("Market Position")
+
+st.markdown("""
+RAK Group is positioned as a **national leader** by:
+
+- Serving essential sectors  
+- Building integrated ecosystems  
+- Driving economic growth and employment  
+- Expanding into underserved regions  
+""")
+
+# CALL TO ACTION
+st.divider()
+st.header("Partner With Us")
+
+st.markdown("""
+Join us in building a **future-ready Philippines** through innovation, sustainability, and strategic collaboration.
+
+📩 Contact us today for partnerships and business opportunities.
+""")
 
 # FOOTER
-st.markdown("---")
-st.caption("© 2026 RAK Group of Companies | Makati City, Philippines")
+st.divider()
+st.caption("© 2026 RAK Group | All Rights Reserved")
