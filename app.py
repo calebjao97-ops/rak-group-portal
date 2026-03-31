@@ -1,11 +1,48 @@
-import streamlit as st
+import base64
 
-# PAGE CONFIG
-st.set_page_config(
-    page_title="RAK Group",
-    layout="wide",
-    page_icon="🌐"
-)
+def get_base64(file):
+    with open(file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+img = get_base64("cover.jpg")  # <-- export your first slide as image
+
+st.markdown(f"""
+<style>
+.hero {{
+    background-image: url("data:image/jpg;base64,{img}");
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}}
+
+.hero-text {{
+    background: rgba(0,0,0,0.6);
+    padding: 40px;
+    border-radius: 15px;
+}}
+
+.hero h1 {{
+    font-size: 60px;
+    color: white;
+}}
+
+.hero p {{
+    font-size: 20px;
+    color: #e2e8f0;
+}}
+</style>
+
+<div class="hero">
+    <div class="hero-text">
+        <h1>RAK Group</h1>
+        <p>Empowering Progress and Innovation</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # CUSTOM CSS (Professional Corporate Style)
 st.markdown("""
