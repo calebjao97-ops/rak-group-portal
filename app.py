@@ -36,8 +36,8 @@ h1, h2, h3 {
 
 # HERO SECTION
 st.title("RAK Group")
-st.image("cover.jpg")
 st.subheader("Empowering Progress and Innovation")
+st.image("cover.jpg")
 
 st.markdown("""
 A diversified conglomerate driving **sustainable development, innovation, and operational excellence** across critical industries in the Philippines and ASEAN.
