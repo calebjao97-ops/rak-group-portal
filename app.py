@@ -6,7 +6,7 @@ st.set_page_config(
     layout="wide",
     page_icon="🌐"
 )
-st.image("cover.jpg", use_container_width=True)
+st.image("image.jpg", use_container_width=True)
 # CUSTOM CSS (Professional Corporate Style)
 st.markdown("""
 <style>
