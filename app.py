@@ -6,7 +6,7 @@ st.set_page_config(
     layout="wide",
     page_icon="🌐"
 )
-
+st.image("cover.jpg", use_container_width=True)
 # CUSTOM CSS (Professional Corporate Style)
 st.markdown("""
 <style>
@@ -37,7 +37,7 @@ h1, h2, h3 {
 # HERO SECTION
 st.title("RAK Group")
 st.subheader("Empowering Progress and Innovation")
-st.image("cover.jpg")
+
 
 st.markdown("""
 A diversified conglomerate driving **sustainable development, innovation, and operational excellence** across critical industries in the Philippines and ASEAN.
