@@ -1,47 +1,37 @@
-import base64
+import streamlit as st
 
-def get_base64(file):
-    with open(file, "rb") as f:
-        return base64.b64encode(f.read()).decode()
+# PAGE CONFIG
+st.set_page_config(
+    page_title="RAK Group",
+    layout="wide",
+    page_icon="🌐"
+)
 
-img = get_base64("cover.jpg")  # <-- export your first slide as image
-
-st.markdown(f"""
+# CUSTOM CSS (Professional Corporate Style)
+st.markdown("""
 <style>
-.hero {{
-    background-image: url("data:image/jpg;base64,{img}");
-    background-size: cover;
-    background-position: center;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}}
-
-.hero-text {{
-    background: rgba(0,0,0,0.6);
-    padding: 40px;
-    border-radius: 15px;
-}}
-
-.hero h1 {{
-    font-size: 60px;
+body {
+    background-color: #0f172a;
     color: white;
-}}
-
-.hero p {{
-    font-size: 20px;
-    color: #e2e8f0;
-}}
+}
+h1, h2, h3 {
+    color: #38bdf8;
+}
+.section {
+    padding: 40px 0;
+}
+.card {
+    background-color: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.highlight {
+    color: #22c55e;
+    font-weight: bold;
+}
 </style>
-
-<div class="hero">
-    <div class="hero-text">
-        <h1>RAK Group</h1>
-        <p>Empowering Progress and Innovation</p>
-    </div>
-</div>
 """, unsafe_allow_html=True)
 
 # HERO SECTION
