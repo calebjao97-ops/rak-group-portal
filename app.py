@@ -45,14 +45,33 @@ page = st.sidebar.radio("Executive Menu", [
 ])
 
 # 4. PAGE CONTENT: CORPORATE OVERVIEW
+# ... (Keep your existing CSS and Sidebar code at the top)
+
+# 4. PAGE CONTENT: CORPORATE OVERVIEW
 if page == "Corporate Overview":
     st.markdown('<p class="main-header">RAK Group of Companies</p>', unsafe_allow_html=True)
     st.markdown('<p class="sub-header">Real Quality Matters</p>', unsafe_allow_html=True)
     
-    st.write("---")
+    # NEW: PROFESSIONAL DESCRIPTION SECTION
+    st.markdown("""
+        <div style="background-color: white; padding: 40px; border-radius: 20px; border: 1px solid #e0e6ed; margin-bottom: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #1B263B; font-family: 'Inter', sans-serif;">Executive Summary</h3>
+            <p style="color: #4A5568; font-size: 1.1rem; line-height: 1.8; font-family: 'Inter', sans-serif;">
+                RAK Group of Companies is a premier multi-sector conglomerate based in the Philippines, 
+                dedicated to driving excellence through strategic facilitation, high-volume industrial procurement, 
+                and luxury real estate development. Under the leadership of professional facilitators and marketing 
+                experts, RAK Group serves as the vital link between global supply chains and local market demand. 
+                From managing 1,000,000-liter monthly fuel logistics to overseeing ₱1 Billion industrial steel 
+                contracts, our mission remains steadfast: ensuring that in every transaction, <b>Real Quality Matters</b>.
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<h4 style='text-align: center; color: #778DA9; margin-bottom: 30px;'>Our Diversified Portfolio</h4>", unsafe_allow_html=True)
     
     # 6-Subsidiary Grid
     col1, col2, col3 = st.columns(3)
+    # ... (Keep your existing col1, col2, col3 card code here)
     
     with col1:
         st.markdown("""<div class="card">
