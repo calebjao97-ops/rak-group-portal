@@ -4,8 +4,7 @@ import streamlit as st
 st.set_page_config(
     page_title="RAK Group",
     layout="wide",
-    page_icon="🌐",
-  st.image("cover.jpg")
+    page_icon="🌐"
 )
 
 # CUSTOM CSS (Professional Corporate Style)
